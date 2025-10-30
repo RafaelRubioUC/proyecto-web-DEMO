@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Us | SpendList</title>
+
+    <!-- TailwindCSS + AOS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <!-- Font & Style -->
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
+      body {
+        font-family: "Inter", sans-serif;
+      }
+      .logo span {
+        color: #10b981;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-50 text-gray-900">
+
+    <!-- Header / Navbar -->
+    <header class="bg-white border-b border-gray-200 py-4">
+      <div class="container mx-auto px-4 flex justify-between items-center">
+        <div class="logo text-2xl font-bold flex items-center space-x-2">
+          <div>
+            Spend
+            <span>List</span>
+          </div>
+          <img src="../Imagenes de front/cf39c8de-3381-4fb3-8383-b066a13f828b.png" alt="Logo" class="w-6 h-6 object-contain align-middle">
+        </div>
+
+        <!-- Menu -->
+        <nav class="hidden md:flex space-x-8 font-medium">
+          <a href="../index.html" class="hover:text-green-500 transition">Home</a>
+          <a href="#" class="text-green-500">About us</a>
+          <a href="#" class="hover:text-green-500 transition">Features</a>
+          <a href="support.html" class="hover:text-green-500 transition">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- About Section -->
+    <section id="about" class="bg-white py-20">
+      <div class="container mx-auto px-6 md:px-12 lg:px-20" data-aos="fade-up">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4">
+            About <span class="text-green-500">Us</span>
+          </h2>
+          <p class="text-gray-600 max-w-2xl mx-auto text-lg">
+            Empowering people to take control of their finances through clarity, simplicity, and design.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+          <div class="space-y-8 text-gray-700 leading-relaxed">
+            <div data-aos="fade-right" data-aos-delay="100">
+              <h3 class="text-2xl font-semibold mb-2 text-gray-900">
+                Empowering Smart Financial Management
+              </h3>
+              <p>
+                At <span class="font-semibold text-green-600">SpendList</span>, our mission is to empower users to take control of
+                their finances through a clean, intuitive, and reliable digital platform.
+                We aim to provide an accessible tool that helps individuals organize and track
+                their income, expenses, and budgets — making personal finance simple,
+                visual, and stress-free.
+              </p>
+            </div>
+
+            <div data-aos="fade-right" data-aos-delay="200">
+              <h3 class="text-2xl font-semibold mb-2 text-gray-900">Our Vision</h3>
+              <p>
+                SpendList was born from the need for a minimalist, data-driven platform that
+                transforms how people understand and manage their money. Our application allows
+                users to <strong>register and manage transactions</strong>, view <strong>budget overviews</strong>, and gain insights through
+                <strong>interactive reports</strong>. By combining elegant design with robust architecture,
+                SpendList delivers both beauty and functionality.
+              </p>
+            </div>
+
+            <div data-aos="fade-right" data-aos-delay="300">
+              <h3 class="text-2xl font-semibold mb-2 text-gray-900">Technical Foundation</h3>
+              <p>
+                The platform integrates a structured database capable of <strong>storing, querying, and updating
+                financial data dynamically</strong>. Our system architecture balances <strong>performance, scalability,
+                and simplicity</strong>, while the UX design ensures clarity and visual harmony for decision-making.
+              </p>
+            </div>
+
+            <div data-aos="fade-right" data-aos-delay="400">
+              <h3 class="text-2xl font-semibold mb-2 text-gray-900">User-Centered Research</h3>
+              <p>
+                Before development, we conducted a <strong>probabilistic user study</strong> to understand
+                the most common financial challenges, such as tracking expenses, categorizing
+                spending, and visualizing budgets. These insights helped shape SpendList into
+                a truly user-focused platform, complete with <strong>visual charts</strong> and
+                smart categorization.
+              </p>
+            </div>
+
+            <div data-aos="fade-right" data-aos-delay="500">
+              <h3 class="text-2xl font-semibold mb-2 text-gray-900">Our Core Objectives</h3>
+              <ul class="list-disc list-inside space-y-2 ml-2">
+                <li>
+                  <strong>General Objective:</strong> Build a website that helps users manage
+                  their capital effectively, gaining control over expenses, income, and other
+                  financial activities.
+                </li>
+                <li>
+                  <strong>Specific Objectives:</strong>
+                  <ul class="list-disc list-inside ml-4 mt-2">
+                    <li>Design an appealing, user-friendly web interface.</li>
+                    <li>Understand and apply the technologies used in its creation.</li>
+                    <li>Promote financial literacy through clarity and accessibility.</li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="flex justify-center" data-aos="fade-left" data-aos-delay="200">
+            <img
+              src="https://cdn-icons-png.flaticon.com/512/2331/2331941.png"
+              alt="About SpendList Illustration"
+              class="w-80 md:w-96 drop-shadow-xl rounded-xl"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black text-white py-10 mt-16">
+      <div class="container mx-auto px-4 text-center space-y-2">
+        <p class="text-lg font-semibold">
+          Spend<span class="text-green-500">List</span> © 2025 — All rights reserved
+        </p>
+        <p class="text-gray-400 text-sm">Designed to make financial clarity simple and accessible.</p>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+      AOS.init({
+        duration: 800,
+        easing: "ease-in-out",
+        once: true,
+      });
+    </script>
+  </body>
+</html>

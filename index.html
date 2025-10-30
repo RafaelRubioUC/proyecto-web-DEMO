@@ -33,23 +33,33 @@
   </head>
   <body class="bg-white text-gray-900">
     <!-- Navigation -->
-    <nav class="border-b border-gray-200 py-4">
-      <div class="container mx-auto px-4 flex justify-between items-center">
-        <div class="logo text-2xl">
-          Green
-          <span>Ledger</span>
+<nav class="border-b border-gray-200 py-4">
+  <div class="container mx-auto px-4 flex justify-between items-center">
+    <!-- Logo + nombre -->
+    <div class="flex items-center space-x-2">
+      <div class="logo text-2xl flex items-center space-x-2">
+        <div>
+          Spend
+          <span>List</span>
         </div>
-        <div class="hidden md:flex space-x-8">
-          <a href="#" class="font-medium hover:text-green-500 transition">Features</a>
-          <a href="#" class="font-medium hover:text-green-500 transition">Pricing</a>
-          <a href="#" class="font-medium hover:text-green-500 transition">About</a>
-          <a href="components/support.html?from=index" class="font-medium hover:text-green-500 transition">Contact</a>
-        </div>
-        <div class="md:hidden">
-          <i data-feather="menu"></i>
-        </div>
+        <img src="Imagenes de front/cf39c8de-3381-4fb3-8383-b066a13f828b.png" alt="Logo" class="w-6 h-6 object-contain align-middle">
       </div>
-    </nav>
+    </div>
+
+    <!-- Botón hamburguesa (solo visible en móviles) -->
+    <button id="menuBtn" class="md:hidden text-gray-700 focus:outline-none">
+      <i data-feather="menu"></i>
+    </button>
+
+    <!-- Menú -->
+    <div id="menu" class="hidden md:flex flex-col md:flex-row md:space-x-8 absolute md:static top-16 left-0 w-full md:w-auto bg-white md:bg-transparent border-t md:border-none text-center md:text-left z-10">
+      <a href="#" class="block py-2 md:py-0 font-medium hover:text-green-500 transition">Features</a>
+      <a href="components/about.html" class="block py-2 md:py-0 font-medium hover:text-green-500 transition">About us</a>
+
+      <a href="components/support.html?from=index" class="block py-2 md:py-0 font-medium hover:text-green-500 transition">Contact</a>
+    </div>
+  </div>
+</nav>
 
     <!-- Hero Section -->
     <main class="min-h-screen flex items-center">
@@ -80,8 +90,8 @@
       <div class="container mx-auto px-4">
         <div class="flex flex-col md:flex-row justify-between items-center">
           <div class="logo text-2xl mb-6 md:mb-0">
-            Green
-            <span>Ledger</span>
+            Spend
+            <span>List</span>
           </div>
           <div class="flex space-x-6">
             <a href="#" class="hover:text-green-500 transition"><i data-feather="twitter"></i></a>
@@ -90,7 +100,7 @@
           </div>
         </div>
         <div class="border-t border-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between">
-          <p class="text-gray-400 mb-4 md:mb-0">© 2023 GreenLedger. All rights reserved.</p>
+          <p class="text-gray-400 mb-4 md:mb-0">© 2025 SpendList. All rights reserved.</p>
           <div class="flex space-x-6">
             <a href="#" class="text-gray-400 hover:text-green-500 transition">Privacy Policy</a>
             <a href="#" class="text-gray-400 hover:text-green-500 transition">Terms of Service</a>

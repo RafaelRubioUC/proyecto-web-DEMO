@@ -3,21 +3,47 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Support | GreenLedger</title>
+    <title>Support | SpendList</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/feather-icons"></script>
     <link rel="stylesheet" href="../styles.css" />
   </head>
   <body class="bg-gray-50 text-gray-900">
-    <header class="bg-white border-b border-gray-200 p-4">
-      <div class="container mx-auto px-4 flex justify-between items-center">
-        <div class="text-2xl font-bold">
-          Green
-          <span class="text-green-500">Ledger</span>
-        </div>
-        <a id="homeLink" href="../index.html" class="text-sm text-gray-600 hover:text-green-500">Home</a>
+    <!-- Header (Navbar) -->
+<!-- Header (Navbar igual al index) -->
+<header class="bg-white border-b border-gray-200 py-4">
+  <div class="container mx-auto px-4 flex justify-between items-center">
+    
+    <!-- Logo + nombre -->
+    <div class="logo text-2xl font-bold flex items-center space-x-2">
+      <div>
+        Spend
+        <span class="text-green-500">List</span>
       </div>
-    </header>
+      <img 
+        src="../Imagenes de front/cf39c8de-3381-4fb3-8383-b066a13f828b.png" 
+        alt="Logo" 
+        class="w-6 h-6 object-contain align-middle">
+    </div>
+
+    <!-- Botón hamburguesa (solo visible en móviles) -->
+    <button id="menuBtn" class="md:hidden text-gray-700 focus:outline-none">
+      <i data-feather="menu"></i>
+    </button>
+
+    <!-- Menú -->
+    <div id="menu"
+         class="hidden md:flex flex-col md:flex-row md:space-x-8 absolute md:static top-16 left-0 w-full md:w-auto bg-white md:bg-transparent border-t md:border-none text-center md:text-left z-10">
+      <a href="../index.html" class="block py-2 md:py-0 font-medium hover:text-green-500 transition">Home</a>
+      <a href="#" class="block py-2 md:py-0 font-medium hover:text-green-500 transition">Features</a>
+
+      <a href="about.html" class="hover:text-green-500 transition">About us</a>
+      <a href="support.html" class="block py-2 md:py-0 font-medium text-green-600">Contact</a>
+    </div>
+  </div>
+</header>
+
+
 
     <main class="container mx-auto px-4 py-12">
       <div class="max-w-3xl mx-auto bg-white rounded-lg shadow p-8">
@@ -135,5 +161,17 @@
         }
       })();
     </script>
+    <script>
+
+  feather.replace();
+  const menuBtn = document.getElementById("menuBtn");
+  const menu = document.getElementById("menu");
+  if (menuBtn && menu) {
+    menuBtn.addEventListener("click", () => {
+      menu.classList.toggle("hidden");
+    });
+  }
+  </script>
+
   </body>
 </html>

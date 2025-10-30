@@ -1,0 +1,47 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
+
+body {
+  font-family: "Inter", sans-serif;
+}
+
+.sidebar {
+  transition: all 0.3s ease;
+}
+
+.card {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.progress-bar {
+  height: 8px;
+  border-radius: 4px;
+}
+
+.active-nav-item {
+  background-color: #f3f4f6;
+  color: #10b981;
+  font-weight: 500;
+}
+
+.active-nav-item i {
+  color: #10b981;
+}
+
+/* Estilos para el skeleton loader */
+.sidebar-skeleton {
+  animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

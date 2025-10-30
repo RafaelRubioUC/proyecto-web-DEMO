@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GreenLedger | Minimalist Finance Manager</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
+      body {
+        font-family: "Inter", sans-serif;
+      }
+      .logo {
+        font-weight: 700;
+        letter-spacing: -0.05em;
+      }
+      .logo span {
+        color: #10b981;
+      }
+      .hero-btn {
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 6px -1px rgba(16, 185, 129, 0.2), 0 2px 4px -1px rgba(16, 185, 129, 0.06);
+      }
+      .hero-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 15px -3px rgba(16, 185, 129, 0.3), 0 4px 6px -2px rgba(16, 185, 129, 0.05);
+      }
+    </style>
+  </head>
+  <body class="bg-white text-gray-900">
+    <!-- Navigation -->
+    <nav class="border-b border-gray-200 py-4">
+      <div class="container mx-auto px-4 flex justify-between items-center">
+        <div class="logo text-2xl">
+          Green
+          <span>Ledger</span>
+        </div>
+        <div class="hidden md:flex space-x-8">
+          <a href="#" class="font-medium hover:text-green-500 transition">Features</a>
+          <a href="#" class="font-medium hover:text-green-500 transition">Pricing</a>
+          <a href="#" class="font-medium hover:text-green-500 transition">About</a>
+          <a href="components/support.html?from=index" class="font-medium hover:text-green-500 transition">Contact</a>
+        </div>
+        <div class="md:hidden">
+          <i data-feather="menu"></i>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <main class="min-h-screen flex items-center">
+      <div class="container mx-auto px-4 py-16 md:py-24">
+        <div class="max-w-3xl mx-auto text-center">
+          <h1 class="text-4xl md:text-6xl font-bold mb-6" data-aos="fade-up">
+            Simplify Your
+            <span class="text-green-500">Finances</span>
+          </h1>
+          <p class="text-xl text-gray-600 mb-12 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+            A minimalist approach to managing your money. Track expenses, set budgets, and achieve financial clarity.
+          </p>
+          <a
+            href="#"
+            id="getStartedBtn"
+            class="hero-btn inline-block bg-green-500 hover:bg-green-600 text-white font-bold py-4 px-8 rounded-full text-lg transition duration-300"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
+            Get Started
+          </a>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-black text-white py-12">
+      <div class="container mx-auto px-4">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+          <div class="logo text-2xl mb-6 md:mb-0">
+            Green
+            <span>Ledger</span>
+          </div>
+          <div class="flex space-x-6">
+            <a href="#" class="hover:text-green-500 transition"><i data-feather="twitter"></i></a>
+            <a href="#" class="hover:text-green-500 transition"><i data-feather="instagram"></i></a>
+            <a href="#" class="hover:text-green-500 transition"><i data-feather="linkedin"></i></a>
+          </div>
+        </div>
+        <div class="border-t border-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between">
+          <p class="text-gray-400 mb-4 md:mb-0">© 2023 GreenLedger. All rights reserved.</p>
+          <div class="flex space-x-6">
+            <a href="#" class="text-gray-400 hover:text-green-500 transition">Privacy Policy</a>
+            <a href="#" class="text-gray-400 hover:text-green-500 transition">Terms of Service</a>
+            <a href="components/support.html?from=index" class="text-gray-400 hover:text-green-500 transition">
+              Help & Support
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Login / Register modal (hidden by default) -->
+    <div id="authModal" class="fixed inset-0 z-50 flex items-center justify-center hidden">
+      <div class="absolute inset-0 bg-black opacity-40"></div>
+      <div class="relative bg-white rounded-lg shadow-lg w-full max-w-md mx-4">
+        <div class="p-4 border-b flex justify-between items-center">
+          <div class="flex space-x-4">
+            <button id="tabLogin" class="px-3 py-1 font-medium text-green-600 border-b-2 border-transparent">
+              Iniciar sesión
+            </button>
+            <button id="tabRegister" class="px-3 py-1 font-medium text-gray-600 border-b-2 border-transparent">
+              Registrarse
+            </button>
+          </div>
+          <button id="closeAuth" class="text-gray-600">&times;</button>
+        </div>
+        <div class="p-6">
+          <!-- Login form -->
+          <form id="loginForm" class="space-y-4">
+            <div>
+              <label class="block text-sm text-gray-700">Email</label>
+              <input type="email" id="loginEmail" class="w-full border rounded px-3 py-2" required />
+            </div>
+            <div>
+              <label class="block text-sm text-gray-700">Contraseña</label>
+              <input type="password" id="loginPassword" class="w-full border rounded px-3 py-2" required />
+            </div>
+            <div class="text-sm text-red-600" id="loginError" style="display: none"></div>
+            <div class="flex justify-between items-center">
+              <a href="#" id="openRegisterFromLogin" class="text-sm text-green-600 hover:underline">
+                ¿No tienes cuenta? Regístrate
+              </a>
+              <button type="submit" class="bg-green-500 text-white px-4 py-2 rounded">Iniciar sesión</button>
+            </div>
+          </form>
+
+          <!-- Register form (hidden by default) -->
+          <form id="registerForm" class="space-y-4 hidden">
+            <div>
+              <label class="block text-sm text-gray-700">Nombre completo</label>
+              <input type="text" id="regName" class="w-full border rounded px-3 py-2" required />
+            </div>
+            <div>
+              <label class="block text-sm text-gray-700">Email</label>
+              <input type="email" id="regEmail" class="w-full border rounded px-3 py-2" required />
+            </div>
+            <div>
+              <label class="block text-sm text-gray-700">Contraseña</label>
+              <input type="password" id="regPassword" class="w-full border rounded px-3 py-2" required />
+            </div>
+            <div>
+              <label class="block text-sm text-gray-700">Confirmar contraseña</label>
+              <input type="password" id="regPasswordConfirm" class="w-full border rounded px-3 py-2" required />
+            </div>
+            <div class="text-sm text-red-600" id="registerError" style="display: none"></div>
+            <div class="flex justify-end">
+              <button type="submit" class="bg-green-500 text-white px-4 py-2 rounded">Crear cuenta</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      AOS.init({
+        duration: 800,
+        easing: "ease-in-out",
+        once: true,
+      });
+      feather.replace();
+
+      // Auth modal behavior: login + registration stored in localStorage, redirect to dashboard on success
+      (function () {
+        const getStartedBtn = document.getElementById("getStartedBtn");
+        const authModal = document.getElementById("authModal");
+        const closeAuth = document.getElementById("closeAuth");
+
+        const tabLogin = document.getElementById("tabLogin");
+        const tabRegister = document.getElementById("tabRegister");
+        const loginForm = document.getElementById("loginForm");
+        const registerForm = document.getElementById("registerForm");
+        const openRegisterFromLogin = document.getElementById("openRegisterFromLogin");
+
+        const loginError = document.getElementById("loginError");
+        const registerError = document.getElementById("registerError");
+
+        function openModal() {
+          authModal.classList.remove("hidden");
+        }
+        function closeModal() {
+          authModal.classList.add("hidden");
+        }
+
+        function showLogin() {
+          tabLogin.classList.add("text-green-600");
+          tabLogin.classList.remove("text-gray-600");
+          tabRegister.classList.add("text-gray-600");
+          tabRegister.classList.remove("text-green-600");
+          loginForm.classList.remove("hidden");
+          registerForm.classList.add("hidden");
+          loginError.style.display = "none";
+          registerError.style.display = "none";
+        }
+
+        function showRegister() {
+          tabRegister.classList.add("text-green-600");
+          tabRegister.classList.remove("text-gray-600");
+          tabLogin.classList.add("text-gray-600");
+          tabLogin.classList.remove("text-green-600");
+          registerForm.classList.remove("hidden");
+          loginForm.classList.add("hidden");
+          loginError.style.display = "none";
+          registerError.style.display = "none";
+        }
+
+        getStartedBtn.addEventListener("click", function (e) {
+          e.preventDefault();
+          openModal();
+          showLogin();
+        });
+        closeAuth.addEventListener("click", closeModal);
+        authModal.addEventListener("click", function (e) {
+          if (e.target === authModal) closeModal();
+        });
+
+        tabLogin.addEventListener("click", function (e) {
+          e.preventDefault();
+          showLogin();
+        });
+        tabRegister.addEventListener("click", function (e) {
+          e.preventDefault();
+          showRegister();
+        });
+        openRegisterFromLogin.addEventListener("click", function (e) {
+          e.preventDefault();
+          showRegister();
+        });
+
+        // Helpers for localStorage users
+        function getUsers() {
+          try {
+            return JSON.parse(localStorage.getItem("gl_users") || "[]");
+          } catch (e) {
+            return [];
+          }
+        }
+        function saveUsers(users) {
+          localStorage.setItem("gl_users", JSON.stringify(users));
+        }
+        function setCurrentUser(user) {
+          localStorage.setItem("gl_currentUser", JSON.stringify(user));
+        }
+
+        // Login submit: check credentials against stored users
+        loginForm.addEventListener("submit", function (e) {
+          e.preventDefault();
+          const email = document.getElementById("loginEmail").value.trim().toLowerCase();
+          const pass = document.getElementById("loginPassword").value;
+          const users = getUsers();
+          const found = users.find((u) => u.email === email && u.password === pass);
+          if (found) {
+            setCurrentUser({ name: found.name, email: found.email });
+            // redirect to dashboard
+            window.location.href = "dashboard.html";
+          } else {
+            loginError.textContent = "Credenciales no válidas. ¿Olvidaste tu contraseña o necesitas registrarte?";
+            loginError.style.display = "block";
+          }
+        });
+
+        // Register submit: basic validation, store user, set current user and redirect
+        registerForm.addEventListener("submit", function (e) {
+          e.preventDefault();
+          const name = document.getElementById("regName").value.trim();
+          const email = document.getElementById("regEmail").value.trim().toLowerCase();
+          const pass = document.getElementById("regPassword").value;
+          const pass2 = document.getElementById("regPasswordConfirm").value;
+
+          if (!name || !email || !pass) {
+            registerError.textContent = "Por favor completa todos los campos.";
+            registerError.style.display = "block";
+            return;
+          }
+          if (pass !== pass2) {
+            registerError.textContent = "Las contraseñas no coinciden.";
+            registerError.style.display = "block";
+            return;
+          }
+
+          const users = getUsers();
+          if (users.find((u) => u.email === email)) {
+            registerError.textContent = "Ya existe una cuenta con ese correo. Intenta iniciar sesión.";
+            registerError.style.display = "block";
+            return;
+          }
+
+          const newUser = { name: name, email: email, password: pass };
+          users.push(newUser);
+          saveUsers(users);
+          setCurrentUser({ name: name, email: email });
+          // Redirect to dashboard after a tiny delay to show success
+          registerError.style.color = "green";
+          registerError.textContent = "Cuenta creada correctamente. Redirigiendo...";
+          registerError.style.display = "block";
+          setTimeout(() => {
+            window.location.href = "dashboard.html";
+          }, 700);
+        });
+      })();
+    </script>
+  </body>
+</html>

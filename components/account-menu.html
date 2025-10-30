@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Account Menu | GreenLedger</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="account-menu bg-white rounded-lg shadow-lg w-64 py-2">
+      <!-- Información del usuario -->
+      <div class="px-4 py-3 border-b border-gray-200">
+        <div class="flex items-center space-x-3">
+          <div class="w-10 h-10 rounded-full bg-green-500 flex items-center justify-center text-white">
+            <i data-feather="user"></i>
+          </div>
+          <div>
+            <div class="font-semibold">John Doe</div>
+            <div class="text-sm text-gray-500">john.doe@example.com</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Enlaces de la cuenta -->
+      <nav class="py-2">
+        <a href="#" class="flex items-center space-x-3 px-4 py-2 text-gray-700 hover:bg-gray-100">
+          <i data-feather="user"></i>
+          <span>Profile</span>
+        </a>
+        <a href="#" class="flex items-center space-x-3 px-4 py-2 text-gray-700 hover:bg-gray-100">
+          <i data-feather="credit-card"></i>
+          <span>Billing</span>
+        </a>
+        <a href="#" class="flex items-center space-x-3 px-4 py-2 text-gray-700 hover:bg-gray-100">
+          <i data-feather="bell"></i>
+          <span>Notifications</span>
+        </a>
+      </nav>
+
+      <!-- Separador -->
+      <div class="border-t border-gray-200 my-1"></div>
+
+      <!-- Opciones adicionales -->
+      <nav class="py-2">
+        <a
+          href="components/support.html?from=dashboard"
+          class="flex items-center space-x-3 px-4 py-2 text-gray-700 hover:bg-gray-100"
+        >
+          <i data-feather="help-circle"></i>
+          <span>Help & Support</span>
+        </a>
+        <a href="../index.html" class="flex items-center space-x-3 px-4 py-2 text-red-600 hover:bg-red-50">
+          <i data-feather="log-out"></i>
+          <span>Sign Out</span>
+        </a>
+      </nav>
+    </div>
+
+    <script>
+      feather.replace();
+
+      // Hacer que el menú sea visible solo cuando se necesite
+      document.addEventListener("DOMContentLoaded", () => {
+        const menu = document.querySelector(".account-menu");
+        // Por defecto oculto
+        menu.style.display = "none";
+      });
+    </script>
+  </body>
+</html>

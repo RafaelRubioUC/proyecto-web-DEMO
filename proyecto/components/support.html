@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Support | GreenLedger</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body class="bg-gray-50 text-gray-900">
+    <header class="bg-white border-b border-gray-200 p-4">
+      <div class="container mx-auto px-4 flex justify-between items-center">
+        <div class="text-2xl font-bold">
+          Green
+          <span class="text-green-500">Ledger</span>
+        </div>
+        <a id="homeLink" href="../index.html" class="text-sm text-gray-600 hover:text-green-500">Home</a>
+      </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-12">
+      <div class="max-w-3xl mx-auto bg-white rounded-lg shadow p-8">
+        <h1 class="text-2xl font-bold mb-4">Help & Support</h1>
+        <p class="text-gray-600 mb-6">
+          Estamos aquí para ayudarte. Revisa las preguntas frecuentes o envíanos un mensaje usando el formulario.
+        </p>
+
+        <section class="mb-8">
+          <h2 class="font-semibold mb-2">FAQ</h2>
+          <ul class="space-y-2 text-gray-700">
+            <li>
+              <strong>¿Cómo restauro mi contraseña?</strong>
+              — Usar la opción "Forgot password" en la pantalla de acceso.
+            </li>
+            <li>
+              <strong>¿Cómo conecto mi cuenta bancaria?</strong>
+              — Actualmente soportamos importación CSV y conexión con bancos via agregadores (en desarrollo).
+            </li>
+            <li>
+              <strong>¿Dónde están mis datos?</strong>
+              — Tus datos se almacenan localmente en tu navegador hasta que implementes sincronización.
+            </li>
+          </ul>
+        </section>
+
+        <section>
+          <h2 class="font-semibold mb-2">Contacto</h2>
+          <form id="supportForm" class="space-y-4">
+            <div>
+              <label class="block text-sm text-gray-700">Nombre</label>
+              <input type="text" id="name" class="w-full border border-gray-300 rounded px-3 py-2" />
+            </div>
+            <div>
+              <label class="block text-sm text-gray-700">Email</label>
+              <input type="email" id="email" class="w-full border border-gray-300 rounded px-3 py-2" />
+            </div>
+            <div>
+              <label class="block text-sm text-gray-700">Mensaje</label>
+              <textarea id="message" rows="4" class="w-full border border-gray-300 rounded px-3 py-2"></textarea>
+            </div>
+            <div>
+              <button type="submit" class="bg-green-500 text-white px-4 py-2 rounded">Enviar mensaje</button>
+            </div>
+            <p id="supportResult" class="text-sm text-green-600 hidden">
+              Gracias, tu mensaje ha sido enviado (simulado).
+            </p>
+          </form>
+        </section>
+      </div>
+    </main>
+
+    <script>
+      // Manejo del formulario: deshabilita el botón, muestra estado y notifica al padre si está en iframe
+      (function () {
+        const form = document.getElementById("supportForm");
+        const result = document.getElementById("supportResult");
+
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          const submitBtn = form.querySelector('button[type="submit"]');
+          if (submitBtn) {
+            submitBtn.disabled = true;
+            submitBtn.classList.add("opacity-50", "cursor-not-allowed");
+          }
+
+          if (result) {
+            result.classList.remove("hidden");
+            result.textContent = "Enviando...";
+          }
+
+          // Simular envío
+          setTimeout(() => {
+            if (result) result.textContent = "Hemos recibido tu mensaje. Te contactaremos pronto.";
+
+            // Si estamos dentro de un iframe, notificar al padre
+            try {
+              if (window.parent && window.parent !== window) {
+                const msg = { type: "support:sent", closeModal: false };
+                // enviar como objeto
+                window.parent.postMessage(msg, "*");
+              }
+            } catch (err) {
+              // ignore
+            }
+          }, 600);
+        });
+
+        // Inicializar feather (si existe)
+        if (window.feather) {
+          try {
+            feather.replace();
+          } catch (e) {}
+        }
+      })();
+
+      // Ajustar el enlace Home si venimos de index o dashboard (soporte para ?from=index|dashboard)
+      (function () {
+        const params = new URLSearchParams(window.location.search);
+        const from = params.get("from");
+        const homeLink = document.getElementById("homeLink");
+        if (!homeLink) return;
+
+        if (from === "dashboard") {
+          homeLink.setAttribute("href", "../dashboard.html");
+        } else if (from === "index") {
+          homeLink.setAttribute("href", "../index.html");
+        } else {
+          // Fallback: if referrer contains dashboard or index, prefer that
+          try {
+            const ref = document.referrer || "";
+            if (ref.includes("dashboard.html")) homeLink.setAttribute("href", "../dashboard.html");
+            else if (ref.includes("index.html")) homeLink.setAttribute("href", "../index.html");
+          } catch (e) {}
+        }
+      })();
+    </script>
+  </body>
+</html>
